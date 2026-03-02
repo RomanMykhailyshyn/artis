@@ -1259,7 +1259,7 @@ var Breakpoints = function () {
 		key: '_getActiveBreakpoint',
 		value: function _getActiveBreakpoint() {
 			//Get breakpoint for window width
-			var _iteratorNormalCompletion = true;
+			var _iteratorNormalCompletion = false;
 			var _didIteratorError = false;
 			var _iteratorError = undefined;
 
@@ -2307,7 +2307,7 @@ var Translate = function () {
 var defaultOptions = {
   initialSlide: 0,
   slidesToScroll: 1,
-  slidesToShow: 1,
+  slidesToShow: 4,
 
   navigation: true,
   navigationKeys: true,
