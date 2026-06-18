@@ -6,11 +6,11 @@ ARTiS combines:
 
 - a central jamming palm controlled through an Arduino relay,
 - seven Dynamixel actuators connected through U2D2,
-- one base rotation joint `J0`,
+- two finger rotation around gripper axis joint `J0`,
 - three finger-axis orientation joints `J1-J3`,
 - three four-bar finger mechanisms `J4-J6`.
 
-This repository follows the same practical organization as the LEAP Hand API: a standalone Python API, a ROS 2 module, example scripts, configuration files, and utility firmware for the microcontroller.
+This repository have a standalone Python API, a ROS 2 module, example scripts, configuration files, and utility firmware for the microcontroller.
 
 ## Repository structure
 
@@ -39,7 +39,7 @@ Default mapping follows the ARTiS mechanical design motor labels and the Dynamix
 
 | Design motor | Joint | Mechanical meaning | Dynamixel ID |
 |---:|---|---|---:|
-| Motor 1 | `J0` / `j0_base` | symmetric rotation about gripper axis | 8 |
+| Motor 1 | `J0` / `j0_base` | fingers symmetric rotation around gripper axis | 8 |
 | Motor 2 | `J1` / `j1_center_axis` | center finger-axis orientation | 1 |
 | Motor 4 | `J2` / `j2_left_axis` | left finger-axis orientation | 2 |
 | Motor 6 | `J3` / `j3_right_axis` | right finger-axis orientation | 3 |
@@ -151,11 +151,18 @@ print(result)  # theta2, theta3, fingertip (x, y)
 ## Important safety notes
 
 - Test each motor independently before applying full presets.
-- Verify all motor IDs in Dynamixel Wizard and update the YAML config.
+- Verify all motor IDs in Dynamixel Wizard config.
 - Keep Dynamixel Wizard closed while running the API because the serial port can be locked by only one process.
 - The relay logic in `arduino/Arduino_communication.ino` is explicit: `1 = jamming ON`, `0 = jamming OFF`. Set `RELAY_ACTIVE_LOW` according to your relay module.
-- The legacy control script mixed two conventions: the enabled `DXL_IDs` list used `1,2,3,4,5,6,8`, while the preset dictionary also contained ID `7`. The current repository follows the mechanical design mapping: `J1-J6 = ID 1-ID 6` and `J0 = ID 8`.
+- The legacy control script mixed two conventions: the enabled `DXL_IDs` list used `1,2,3,4,5,6,8`. The current repository follows the mechanical design mapping: `J1-J6 = ID 1-ID 6` and `J0 = ID 8`.
 
 ## Citation
 
-If this API is used in a publication, cite the ARTiS paper/project page associated with the gripper design.
+If you use ARTiS Gripper in research, please cite:
+```bibtex
+@article{2026artisgripper,
+  title={ARTiS: An Adaptive Robotic Gripper for Enhanced Tool Manipulation in Disassembly Applications},
+  author={Mykhailyshyn, Roman and Domae, Yukiyasu and Harada, Kensuke},
+  journal={TASE},
+  year={2026}
+}
