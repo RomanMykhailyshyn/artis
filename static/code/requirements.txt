@@ -1,3 +1,0 @@
-dynamixel-sdk
-pyserial
-pyyaml
