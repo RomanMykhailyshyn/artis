@@ -62,7 +62,7 @@ The uploaded old teaching code used the experimental list `[2, 3, 4, 5, 6, 7, 8]
 ## Installation
 
 ```bash
-git clone https://github.com/anonymrobotic/artis.git
+git clone https://github.com/RomanMykhailyshyn/artis.git
 cd artis/static/code/artis_gripper_api
 
 python -m venv venv
@@ -178,9 +178,9 @@ ros2 run artis_gripper_ros2 artis_node --ros-args -p config:=/absolute/path/to/c
 
 If you use ARTiS Gripper in research, please cite:
 ```bibtex
-@article{2026artisgripper,
+@article{mykhailyshyn2026artis,
   title={ARTiS: An Adaptive Robotic Gripper for Enhanced Tool Manipulation in Disassembly Applications},
-  author={________},
-  journal={TASE},
+  author={Mykhailyshyn, Roman and Domae, Yukiyasu and Harada, Kensuke},
+  journal={IEEE Transactions on Automation Science and Engineering},
   year={2026}
 }
